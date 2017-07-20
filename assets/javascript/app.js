@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  //var theme = new Audio("assets/sounds/rock.mp3");
-  //theme.volume = 0.4;
-  //theme.play(); 
+  var theme = new Audio("assets/sounds/rock.mp3");
+  theme.volume = 0.5;
+  theme.play(); 
   var correct;
   var wrong;
   var unanswered;
@@ -103,7 +103,9 @@ $(document).ready(function() {
   var count;
   var counter;
   function startGame() {
+    theme.volume = 0.2;
     $('#choices').empty();
+    $('#title > h1').css('font-size', '100px');
     $('#timer').html("00 : 30");
     count=30;
     counter=setInterval(timer, 1000);
@@ -124,6 +126,9 @@ $(document).ready(function() {
     correct_answer = questions[questionNum].choices[questions[questionNum].answer];
     if(answer_chosen === correct_answer) {
       correct++;
+      var cheer = new Audio("assets/sounds/cheer.mp3");
+      cheer.volume = 0.5;
+      cheer.play(); 
       $('#category').html("Correct!");
       $('#question').empty();
       $('#choices').html("<img src='"+questions[questionNum].gif+"' style='width:500px;height:300px;'>");
@@ -138,6 +143,7 @@ $(document).ready(function() {
   });
 
   function nextQuestion() {
+    $('#timer').css('color', 'white');
     $('#choices').empty();
     questionNum++;
     if (questionNum >= 10) {
@@ -160,9 +166,13 @@ $(document).ready(function() {
   function timer() {
     count--;
     if (count <= 0) {
-       clearInterval(counter);
-       timesUp();
-       return;
+      var horn = new Audio("assets/sounds/horn.mp3");
+      horn.volume = 0.4;
+      horn.play(); 
+      $('#timer').html("00 : 00");
+      clearInterval(counter);
+      timesUp();
+      return;
     }
     if (count >= 0 && count <10) {
       $('#timer').html("00 : 0" + count);
@@ -170,7 +180,6 @@ $(document).ready(function() {
     }
     else {
       $('#timer').html("00 : " + count);
-      $('#timer').css('color', 'black');
     }
   }
 

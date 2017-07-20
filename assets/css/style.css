@@ -1,12 +1,30 @@
 .container {
-    background-color: yellow;
     text-align: center;
     margin: 50px;
     border-radius: 25px;
+    min-height: 96%;
+    background-image: url("../images/turf.jpg");
+    color: white;
 }
 
 body {
     background-image: url("../images/wallpaper.jpg");
+    min-height: 96%;
+}
+
+html {
+    min-height: 96%;
+}
+
+#title >  h1 {
+    font-family: sports; 
+    font-size: 250px; 
+    color: red;
+}
+
+#question {
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #choices {
@@ -29,3 +47,18 @@ body {
     border: solid 5px #f1c40f;
     cursor: pointer;
 }
+
+#timer {
+    font-family: timea; 
+    font-size: 40px;
+}
+
+@font-face { 
+    font-family: timea; 
+    src: url('../fonts/timea/Timea.ttf'); 
+} 
+
+@font-face { 
+    font-family: sports; 
+    src: url('../fonts/sf_sports_night/SF_Sports_Night.ttf'); 
+} 
